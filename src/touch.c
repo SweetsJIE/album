@@ -1,8 +1,8 @@
 #include "touch.h"
-
+//简单检测触摸屏左右滑动
 int touch_slide(int fb_ts)
 {
-	int x,x_begin,start_flag = 0,pressure = 0; 
+	int x,y,x_begin,start_flag = 0,pressure = 0; 
 	struct input_event ts;
 
 	
@@ -16,6 +16,11 @@ int touch_slide(int fb_ts)
 			if(ts.code == ABS_X)
 			{
 			    	x = ts.value;
+			}
+			if(ts.code == ABS_Y)
+			{
+			    	if(ts.value < 40)
+					return 2;
 			}
 			else if(ts.code == ABS_PRESSURE)
 			{
@@ -32,7 +37,6 @@ int touch_slide(int fb_ts)
 				}
 
 			}
-			printf("(%d %d)\n",x,pressure);
 		}
 	}
 	

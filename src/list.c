@@ -18,10 +18,11 @@ linklist new_node(char *data)
 	linklist new = calloc(1, sizeof(listnode));
 	if(new != NULL)
 	{
-		strcpy(new->data,data);
+		strcpy(new->data,data); //文件名字复制到链表
 
 		new->prev = new;
 		new->next = new;
+		new->rgb  = NULL;
 	}
 
 	return new;

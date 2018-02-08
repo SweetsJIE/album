@@ -9,7 +9,7 @@
 typedef struct node
 {
 	char data[20];
-	struct RGB rgb;
+	struct RGB *rgb;
 	
 	struct node *prev;
 	struct node *next;

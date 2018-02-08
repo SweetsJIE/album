@@ -1,6 +1,6 @@
 #include "jpg.h"
 
-
+//jpg数据转换为rgb数据
 bool jpg_to_rgb(struct RGB *rgb, char *jpg_data, struct stat *jpg_info)
 {
 	int i;
@@ -44,7 +44,6 @@ bool jpg_to_rgb(struct RGB *rgb, char *jpg_data, struct stat *jpg_info)
 	rgb->height = cinfo.output_height;
 	rgb->bpp    = cinfo.output_components;
 
-	printf("w h b = %d %d %d",cinfo.output_width,cinfo.output_height,cinfo.output_components);
 
 	// [固定步骤]循环地将图片的每一行读出并解码到rgb_data中
 	int row_stride = cinfo.output_width * cinfo.output_components;
@@ -74,7 +73,7 @@ bool jpg_to_rgb(struct RGB *rgb, char *jpg_data, struct stat *jpg_info)
 	
 	return true;
 }
-
+//读取jpg文件数据
 int read_jpg_image(int fd, char *jpg_data, int size)
 {
 	int n,total = 0;

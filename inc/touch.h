@@ -7,6 +7,7 @@
 #define MIN_SLIDE_LEN 300
 #define NEXT 1
 #define PREV -1
+#define OVER 2
 
 int touch_slide(int fb_ts);
 
